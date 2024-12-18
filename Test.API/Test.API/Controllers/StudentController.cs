@@ -16,7 +16,7 @@ namespace Test.API.Controllers
             _studentService = studentService;
         }
         [HttpGet]
-        public async Task<IActionResult> testt()
+        public async Task<IActionResult> testt2()
         {
             try
             {
