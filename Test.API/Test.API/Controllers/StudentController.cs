@@ -15,6 +15,19 @@ namespace Test.API.Controllers
         {
             _studentService = studentService;
         }
+        [HttpGet]
+        public async Task<IActionResult> testt()
+        {
+            try
+            {
+                var students = await _studentService.GetAllStudentsAsync();
+                return Ok(students);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, $"Internal server error: {ex.Message}");
+            }
+        }
 
         // GET: api/student
         [HttpGet]
