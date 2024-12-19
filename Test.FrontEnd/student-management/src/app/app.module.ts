@@ -9,6 +9,7 @@ import { StudentListComponent } from './components/student-list/student-list.com
 import { StudentDetailsComponent } from './components/student-details/student-details.component';
 import { AddStudentComponent } from './components/add-student/add-student.component';
 import { StudentListWithContextMenuComponent } from './components/student-list-with-context-menu/student-list-with-context-menu.component';
+import { NavbarComponent } from './components/navbar/navbar.component';
 
 @NgModule({
   declarations: [
@@ -17,6 +18,7 @@ import { StudentListWithContextMenuComponent } from './components/student-list-w
     StudentDetailsComponent,
     AddStudentComponent,
     StudentListWithContextMenuComponent,
+    NavbarComponent,
   ],
   imports: [
     BrowserModule,
