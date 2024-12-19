@@ -1,0 +1,11 @@
+<div class="container">
+    <h2>Students</h2>
+    <ul class="list-group">
+      <li class="list-group-item" *ngFor="let student of students">
+        {{ student.name }} ({{ student.email }})
+        <a [routerLink]="['/students', student.id]">View Details</a>
+      </li>
+    </ul>
+    <a routerLink="/add-student" class="btn btn-primary mt-3">Add Student</a>
+  </div>
+  

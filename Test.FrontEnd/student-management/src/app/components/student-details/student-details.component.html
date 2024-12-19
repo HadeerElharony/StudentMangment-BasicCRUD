@@ -1,0 +1,12 @@
+<div class="container" *ngIf="studentDetails">
+    <h2>{{ studentDetails.name }}'s Details</h2>
+    <p><strong>Email:</strong> {{ studentDetails.email }}</p>
+    <p><strong>Age:</strong> {{ studentDetails.age }}</p>
+    <h3>Courses</h3>
+    <ul>
+      <li *ngFor="let course of studentDetails.courses">
+        {{ course.courseName }}
+      </li>
+    </ul>
+  </div>
+  

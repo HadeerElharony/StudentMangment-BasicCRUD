@@ -1,0 +1,97 @@
+<div class="container mt-4">
+  <div class="d-flex justify-content-between align-items-center mb-3">
+    <h2>Adding new students</h2>
+    <button class="btn btn-success" (click)="addStudent()">
+      Add Student
+    </button>
+  </div>
+
+    <h2>Student List</h2>
+    <div *ngIf="loading" class="text-center">
+      <p>Loading students...</p>
+    </div>
+    <div *ngIf="!loading && students.length === 0" class="text-center">
+      <p>No students available.</p>
+    </div>
+    <table *ngIf="!loading && students.length > 0" class="table table-bordered table-hover">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Name</th>
+          <th>Email</th>
+          <th>Age</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let student of students">
+          <td>{{ student.id }}</td>
+          <td>{{ student.name }}</td>
+          <td>{{ student.email }}</td>
+          <td>{{ student.age }}</td>
+          <td>
+            <button class="btn btn-info btn-sm" (click)="viewDetails(student.id)">
+              Details
+            </button>
+            <button class="btn btn-warning btn-sm" (click)="openUpdateModal(student)">
+              Update
+            </button>
+            <button class="btn btn-danger btn-sm" (click)="deleteStudent(student.id)">
+              Delete
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  
+
+  <!-- Update Student Modal -->
+<div class="modal" tabindex="-1" [ngClass]="{'show': showUpdateModal}" [style.display]="showUpdateModal ? 'block' : 'none'">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Update Student</h5>
+        <button type="button" class="btn-close" (click)="closeUpdateModal()"></button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="mb-3">
+            <label for="name" class="form-label">Name</label>
+            <input
+              type="text"
+              id="name"
+              class="form-control"
+              [(ngModel)]="selectedStudent.name"
+              name="name"
+            />
+          </div>
+          <div class="mb-3">
+            <label for="age" class="form-label">Age</label>
+            <input
+              type="number"
+              id="age"
+              class="form-control"
+              [(ngModel)]="selectedStudent.age"
+              name="age"
+            />
+          </div>
+          <div class="mb-3">
+            <label for="email" class="form-label">Email</label>
+            <input
+              type="email"
+              id="email"
+              class="form-control"
+              [(ngModel)]="selectedStudent.email"
+              name="email"
+            />
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" (click)="closeUpdateModal()">Cancel</button>
+        <button type="button" class="btn btn-primary" (click)="updateStudent()">Save Changes</button>
+      </div>
+    </div>
+  </div>
+</div>
