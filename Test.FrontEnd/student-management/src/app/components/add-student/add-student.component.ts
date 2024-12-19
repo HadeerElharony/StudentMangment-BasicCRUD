@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
+import { NgForm } from '@angular/forms';
 import { Student } from '../../models/student';
 import { StudentService } from '../../services/student.service';
 
@@ -8,6 +9,8 @@ import { StudentService } from '../../services/student.service';
   styleUrls: ['./add-student.component.css'],
 })
 export class AddStudentComponent {
+  @ViewChild('studentForm', { static: false }) studentForm!: NgForm;
+
   student: Student = {
     id: 0,
     name: '',
@@ -18,13 +21,16 @@ export class AddStudentComponent {
   constructor(private studentService: StudentService) {}
 
   addStudent(): void {
-    this.studentService.createStudent(this.student).subscribe(() => {
-      alert('Student added successfully!');
-      this.clearForm(); // Clear the form after successful submission
-    });
+    if (this.studentForm.valid) {
+      this.studentService.createStudent(this.student).subscribe(() => {
+        alert('Student added successfully!');
+        this.resetForm(); // Clear the form and reset validation
+      });
+    }
   }
 
-  clearForm(): void {
+  resetForm(): void {
+    this.studentForm.resetForm(); // Reset the form fields and validation state
     this.student = {
       id: 0,
       name: '',

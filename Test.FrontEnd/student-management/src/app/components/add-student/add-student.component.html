@@ -1,39 +1,69 @@
 <div class="container">
-    <h2>Add Student</h2>
-    <form>
-      <div class="mb-3">
-        <label for="name" class="form-label">Name</label>
-        <input
-          type="text"
-          id="name"
-          class="form-control"
-          [(ngModel)]="student.name"
-          name="name"
-        />
+  <h2>Add Student</h2>
+  <form #studentForm="ngForm" (ngSubmit)="addStudent()">
+    <!-- Name Field -->
+    <div class="mb-3">
+      <label for="name" class="form-label">Name</label>
+      <input
+        type="text"
+        id="name"
+        class="form-control"
+        [(ngModel)]="student.name"
+        name="name"
+        #name="ngModel"
+        required
+      />
+      <!-- Validation Error for Name -->
+      <div *ngIf="name.invalid && name.touched" class="text-danger">
+        Name is required.
       </div>
-      <div class="mb-3">
-        <label for="age" class="form-label">Age</label>
-        <input
-          type="number"
-          id="age"
-          class="form-control"
-          [(ngModel)]="student.age"
-          name="age"
-        />
+    </div>
+
+    <!-- Age Field -->
+    <div class="mb-3">
+      <label for="age" class="form-label">Age</label>
+      <input
+        type="number"
+        id="age"
+        class="form-control"
+        [(ngModel)]="student.age"
+        name="age"
+        #age="ngModel"
+        required
+        min="1"
+      />
+      <!-- Validation Error for Age -->
+      <div *ngIf="age.invalid && age.touched" class="text-danger">
+        Age is required and must be greater than 0.
       </div>
-      <div class="mb-3">
-        <label for="email" class="form-label">Email</label>
-        <input
-          type="email"
-          id="email"
-          class="form-control"
-          [(ngModel)]="student.email"
-          name="email"
-        />
+    </div>
+
+    <!-- Email Field -->
+    <div class="mb-3">
+      <label for="email" class="form-label">Email</label>
+      <input
+        type="email"
+        id="email"
+        class="form-control"
+        [(ngModel)]="student.email"
+        name="email"
+        #email="ngModel"
+        required
+        email
+      />
+      <!-- Validation Error for Email -->
+      <div *ngIf="email.invalid && email.touched" class="text-danger">
+        A valid email is required.
       </div>
-      <button type="button" class="btn btn-success" (click)="addStudent()">
-        Submit
-      </button>
-    </form>
-  </div>
-  
+    </div>
+
+    <!-- Submit Button -->
+    <button
+      type="submit"
+      class="btn btn-success"
+      [disabled]="studentForm.invalid"
+    >
+      Submit
+    </button>
+  </form>
+</div>
