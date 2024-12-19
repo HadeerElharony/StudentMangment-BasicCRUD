@@ -22,7 +22,7 @@ export class StudentDetailsComponent implements OnInit {
   }
 
   loadStudentDetails(id: number): void {
-    this.studentService.getStudentDetails(id).subscribe((data) => {
+    this.studentService.getStudentWithCourses(id).subscribe((data) => {
       this.studentDetails = data;
     });
   }

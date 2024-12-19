@@ -1,7 +1,12 @@
-<div class="container" *ngIf="studentDetails">
+<div class="student-details-container container" *ngIf="studentDetails">
+  <div class="details-header">
     <h2>{{ studentDetails.name }}'s Details</h2>
+  </div>
+  <div class="details-body">
     <p><strong>Email:</strong> {{ studentDetails.email }}</p>
     <p><strong>Age:</strong> {{ studentDetails.age }}</p>
+  </div>
+  <div class="courses">
     <h3>Courses</h3>
     <ul>
       <li *ngFor="let course of studentDetails.courses">
@@ -9,4 +14,4 @@
       </li>
     </ul>
   </div>
-  
+</div>

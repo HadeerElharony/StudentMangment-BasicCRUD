@@ -1,0 +1,87 @@
+/* General container styling */
+.container {
+    max-width: 600px;
+    margin: 30px auto;
+    background: #ffffff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    font-family: Arial, sans-serif;
+  }
+  
+  /* Header styling */
+  h2 {
+    color: #343a40;
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 1.8rem;
+  }
+  
+  /* Paragraph and text styling */
+  p {
+    font-size: 1rem;
+    color: #495057;
+    margin: 10px 0;
+  }
+  
+  /* Highlight labels */
+  p strong {
+    color: #212529;
+    font-weight: 600;
+  }
+  
+  /* Courses heading */
+  h3 {
+    margin-top: 20px;
+    color: #495057;
+    font-size: 1.4rem;
+    border-bottom: 2px solid #f8f9fa;
+    padding-bottom: 5px;
+  }
+  
+  /* Course list styling */
+  ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  li {
+    background: #f8f9fa;
+    margin: 5px 0;
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 1rem;
+    color: #495057;
+    display: flex;
+    align-items: center;
+  }
+  
+  li::before {
+    content: '🎓';
+    margin-right: 10px;
+  }
+  
+  /* Responsive design for smaller screens */
+  @media (max-width: 768px) {
+    .container {
+      padding: 15px;
+      margin: 20px;
+    }
+  
+    h2 {
+      font-size: 1.5rem;
+    }
+  
+    h3 {
+      font-size: 1.2rem;
+    }
+  
+    p {
+      font-size: 0.9rem;
+    }
+  
+    li {
+      font-size: 0.9rem;
+    }
+  }
+  

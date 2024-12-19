@@ -134,6 +134,19 @@ namespace Test.API.Controllers
 
             return Ok(studentDto);
         }
+
+        [HttpGet("{id}")]
+        public async Task<IActionResult> GetStudentWithCoursesById(int id)
+        {
+            var studentWithCourses = await _studentService.GetStudentWithCoursesByEmpIdAsync(id);
+
+            if (studentWithCourses == null)
+            {
+                return NotFound(new { message = "Student not found" });
+            }
+
+            return Ok(studentWithCourses);
+        }
     }
 }
 

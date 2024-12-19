@@ -84,5 +84,32 @@ namespace Test.BAL.Services
             // Map the student entity to a StudentDto
             return AutoStaticMapper<Student, StudentDto>.MapObject(student);
         }
+
+        public async Task<StudentWithCoursesDto> GetStudentWithCoursesByEmpIdAsync(int studentId)
+        {
+            var student = await _studentRepository.GetStudentWithCoursesByStudentIdAsync(studentId);
+            // Handle the case where no student is found
+            if (student == null)
+            {
+                return null;
+            }
+
+            // Manually map the student to StudentWithCoursesDto
+            var studentDto = new StudentWithCoursesDto
+            {
+                Id = student.Id,
+                Name = student.Name,
+                Email = student.Email,
+                Age = student.Age,
+                Courses = student.StudentCourses.Select(sc => new CourseDto
+                {
+                    Id = sc.Course.CourseId,
+                    CourseName = sc.Course.CourseName
+                }).ToList()
+            };
+
+            return studentDto;
+        }
     }
 }
+

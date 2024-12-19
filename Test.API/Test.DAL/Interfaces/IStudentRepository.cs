@@ -7,8 +7,9 @@ using Test.DAL.Entities;
 
 namespace Test.DAL.Interfaces
 {
-    public interface IStudentRepository : IGenericRepository<Student,int>
+    public interface IStudentRepository : IGenericRepository<Student, int>
     {
         Task<IEnumerable<Student>> GetStudentsWithCoursesAsync();
+        Task<Student> GetStudentWithCoursesByStudentIdAsync(int studentId);
     }
 }

@@ -8,6 +8,7 @@ namespace Test.BAL.Interfaces
         Task<IEnumerable<StudentDto>> GetAllStudentsAsync();
         Task<StudentDto> GetStudentByIdAsync(int studentId);
         Task<IEnumerable<StudentWithCoursesDto>> GetStudentsWithCoursesAsync();
+        Task<StudentWithCoursesDto> GetStudentWithCoursesByEmpIdAsync(int studentId);
         Task<SaveDbResult> AddStudentAsync(StudentDto studentDto);
         Task<SaveDbResult> UpdateStudentAsync(StudentDto studentDto);
         Task<SaveDbResult> DeleteStudentAsync(int studentId);

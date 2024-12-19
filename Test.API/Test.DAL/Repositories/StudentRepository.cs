@@ -22,5 +22,15 @@ namespace Test.DAL.Repositories
                 .AsNoTracking()
                 .ToListAsync();
         }
+
+        public async Task<Student> GetStudentWithCoursesByStudentIdAsync(int studentId)
+        {
+            return await _entity
+                .Include(student => student.StudentCourses)
+                    .ThenInclude(sc => sc.Course)
+                .Where(s=>s.Id==studentId)
+                .AsNoTracking()
+                .FirstOrDefaultAsync();
+        }
     }
 }
