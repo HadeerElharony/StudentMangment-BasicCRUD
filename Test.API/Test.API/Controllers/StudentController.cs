@@ -15,7 +15,10 @@ namespace Test.API.Controllers
         {
             _studentService = studentService;
         }
-        // GET: api/student
+        /// <summary>
+        /// Retrieves a list of all students.
+        /// </summary>
+        /// <returns>An action result containing a list of students.</returns>
         [HttpGet]
         public async Task<IActionResult> GetAllStudents()
         {
@@ -30,7 +33,11 @@ namespace Test.API.Controllers
             }
         }
 
-        // GET: api/student/{id}
+        /// <summary>
+        /// Retrieves the details of a student by their ID.
+        /// </summary>
+        /// <param name="id">The ID of the student to retrieve.</param>
+        /// <returns>An action result containing the student details or a 404 if not found.</returns>
         [HttpGet("{id}")]
         public async Task<IActionResult> GetStudentById(int id)
         {
@@ -48,7 +55,10 @@ namespace Test.API.Controllers
             }
         }
 
-        // GET: api/student/with-courses
+        /// <summary>
+        /// Retrieves a list of students along with their associated courses.
+        /// </summary>
+        /// <returns>An action result containing a list of students with courses.</returns>
         [HttpGet]
         public async Task<IActionResult> GetStudentsWithCourses()
         {
@@ -63,7 +73,11 @@ namespace Test.API.Controllers
             }
         }
 
-        // POST: api/student
+        /// <summary>
+        /// Adds a new student to the system.
+        /// </summary>
+        /// <param name="studentDto">The data of the student to add.</param>
+        /// <returns>An action result with a success message or an error if the student data is null.</returns>
         [HttpPost]
         public async Task<IActionResult> AddStudent([FromBody] StudentDto studentDto)
         {
@@ -81,7 +95,11 @@ namespace Test.API.Controllers
             }
         }
 
-        // PUT: api/student
+        /// <summary>
+        /// Updates an existing student's information.
+        /// </summary>
+        /// <param name="studentDto">The updated student data.</param>
+        /// <returns>An action result with a success message or an error if not found or if the data is invalid.</returns>
         [HttpPut]
         public async Task<IActionResult> UpdateStudent([FromBody] StudentDto studentDto)
         {
@@ -103,7 +121,11 @@ namespace Test.API.Controllers
             }
         }
 
-        // DELETE: api/student/{id}
+        /// <summary>
+        /// Deletes a student from the system by their ID.
+        /// </summary>
+        /// <param name="id">The ID of the student to delete.</param>
+        /// <returns>An action result with a success message or an error if not found.</returns>
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteStudent(int id)
         {
@@ -122,6 +144,11 @@ namespace Test.API.Controllers
             }
         }
 
+        /// <summary>
+        /// Retrieves a student by their email address.
+        /// </summary>
+        /// <param name="email">The email address of the student to retrieve.</param>
+        /// <returns>An action result containing the student details or a 404 if not found.</returns>
         [HttpGet]
         public async Task<ActionResult<StudentDto>> GetStudentByEmailAsync(string email)
         {
@@ -135,6 +162,11 @@ namespace Test.API.Controllers
             return Ok(studentDto);
         }
 
+        /// <summary>
+        /// Retrieves a student along with their courses by their ID.
+        /// </summary>
+        /// <param name="id">The ID of the student to retrieve along with courses.</param>
+        /// <returns>An action result containing the student and their courses or a 404 if not found.</returns>
         [HttpGet("{id}")]
         public async Task<IActionResult> GetStudentWithCoursesById(int id)
         {
