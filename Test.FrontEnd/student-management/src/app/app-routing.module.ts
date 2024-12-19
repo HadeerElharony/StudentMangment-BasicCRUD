@@ -9,11 +9,8 @@ const routes: Routes = [
   { path: '', redirectTo: '/students', pathMatch: 'full' },
   { path: 'students', component: StudentListWithContextMenuComponent },
   { path: 'add-student', component: AddStudentComponent },
-  // { path: '', component: StudentListWithContextMenuComponent },
-
   // // { path: '', component: StudentListComponent },
-  // { path: 'students/:id', component: StudentDetailsComponent },
-  // { path: 'add-student', component: AddStudentComponent },
+   { path: 'students/:id', component: StudentDetailsComponent },
 ];
 
 @NgModule({
