@@ -26,13 +26,6 @@ namespace Test.BAL.Mappers
             TDestination obj = mapper.Map<TDestination>(source);
             return obj;
         }
-
-        public static TDestination MapObjectWithConfig(TSource source, MapperConfiguration config)
-        {
-            var mapper = new Mapper(config);
-            TDestination _object = mapper.Map<TDestination>(source);
-            return _object;
-        }
     }
 
 }
