@@ -47,3 +47,5 @@ The frontend is built using Angular and provides an interface to interact with t
 - A **form** to add and update student data.
 - A **table** to display the list of all students.
 - Features to **view student details**, including courses they are enrolled in.
+![image](https://github.com/user-attachments/assets/90a92b41-ee58-4ef4-bcca-004d3b4bee7d)
+
